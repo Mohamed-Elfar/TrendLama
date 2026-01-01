@@ -76,6 +76,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
             <div className="flex items-center gap-2">
               {product.colors.map((color) => (
                 <div
+                  key={color}
                   className={`border rounded-full ${
                     productType.color === color
                       ? "border-gray-400"

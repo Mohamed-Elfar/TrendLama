@@ -1,15 +1,13 @@
 import ProductInteraction from "@/components/ProductInteraction";
 import { ProductType } from "@/types";
-import { DessertIcon } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 
 export const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) => {
-  const id = (await params).id;
+  await params;
   return {
     title: product.name + " - Trendlama",
     description: product.description,
@@ -34,10 +32,8 @@ const product: ProductType = {
 };
 
 export default async function ProductPage({
-  params,
   searchParams,
 }: {
-  params: Promise<{ id: string }>;
   searchParams: Promise<{ color: string; size: string }>;
 }) {
   const selectedSize =

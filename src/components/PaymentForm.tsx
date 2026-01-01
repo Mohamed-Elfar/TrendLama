@@ -1,13 +1,13 @@
+"use client";
+
 import { PaymentFormInputs, PaymentFormSchema } from "@/types";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ShoppingCart } from "lucide-react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function PaymentForm() {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -15,7 +15,9 @@ export default function PaymentForm() {
   } = useForm<PaymentFormInputs>({
     resolver: zodResolver(PaymentFormSchema),
   });
-  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (data) => {};
+  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (data) => {
+    console.log("payment data", data);
+  };
   return (
     <form
       className="flex flex-col gap-4"
